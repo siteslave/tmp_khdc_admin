@@ -1,0 +1,123 @@
+extends ../layouts/main
+
+block scripts 
+  script(src="../js/index.js")
+
+block content
+  .row
+    .col-md-3
+      ul.sidebar2
+        li.title
+          span.mif-app
+          | &nbsp;Main menu
+        li
+          a(href="#")
+            span.mif-home.icon
+            | &nbsp; Dashboard
+        li.stick.bg-red
+          a(href="#")
+            span.mif-cog.icon
+            | นำเข้าข้อมูล
+        li.stick.bg-green
+          a.dropdown-toggle(href="#")
+            span.mif-tree.icon
+            | ประมวลผลข้อมูล
+          ul.d-menu(data-role="dropdown")
+            li
+              a(href="../pages/process-kpi.html")
+                span.mif.mif-loop2.icon
+                | ประมวลผลตัวชี้วัดกระทรวง
+            li
+              a(href="#")
+                span.mif.mif-loop2.icon
+                | ประมวลผลตัวชี้วัด QOF
+
+
+    .col-md-9
+      ul.breadcrumbs
+        li
+          a(href="#")
+            span.icon.mif-home
+        li
+          a(href="#") Dashboard
+        li นำเข้าไฟล์
+
+      button.image-button.danger#btnImportAll
+        | นำเข้าไฟล์ทั้งหมด
+        span.icon.mif-loop
+      | &nbsp;
+      button.image-button.success#btnRefresh
+        | รีเฟรช
+        span.icon.mif-loop2
+      | &nbsp;
+      button.image-button.info.place-right#bntOpenExportFolder
+        | เปิดโฟล์เดอร์...
+        span.icon.mif-folder-open.bg-blue
+
+      table.table.hovered#tblList
+        thead
+          tr
+            th ชื่อไฟล์
+            th ขนาด
+            th ปรับปรุงล่าสุด
+            th
+        tbody
+
+  div(data-role="dialog", data-overlay="true", data-close-button="false",
+  data-type="info", data-width="480", data-background="bg-magenta",
+  data-color="fg-white", data-overlay-color="op-dark")#dialog2.padding20
+    h2
+      | Please wait...
+      | &nbsp;
+      span#txtCurrent 0
+      | &nbsp;of&nbsp;
+      span#txtTotal 0
+    .row
+      .col-md-12
+        | โปรแกรมกำลังนำเข้าข้อมูล, กรุณารอซักครู่
+    .row
+      .col-md-12
+        br
+        strong
+          | Processing... &nbsp;
+          span#txtCurrentFile
+    .row
+      .col-md-12
+        //div(data-role="preloader", data-type="square", data-style="color").place-right
+        div.progress.small(data-role="progress", data-animate="500")#progress
+  div(data-role="dialog", data-overlay="true", data-close-button="false",
+  data-type="info", data-width="480", data-background="bg-magenta",
+  data-color="fg-white", data-overlay-color="op-dark")#dialog.padding20
+    h2 Please wait...
+    .row
+      .col-md-11
+        | โปรแกรมกำลังนำเข้าข้อมูล กรุณารอจนกว่าหน้าจอจะปิดลง
+      .col-md-1
+        div(data-role="preloader", data-type="square", data-style="color").place-right
+
+  script#fileTemplate(type="text/x-jsrender").
+    <tr>
+      <td>{{:name}}</td>
+      <td>{{:size}}</td>
+      <td>{{:created_time}}</td>
+      <td width="100">
+        <div class="dropdown-button.place-right">
+          <button class="button dropdown-toggle small-button">
+            <span class="mif mif-apps mif-lg"></span>
+          </button>
+          <ul class="split-content d-menu place-right" data-role="dropdown">
+            <li>
+              <a href="#" data-name="btnImport" data-file="{{:name}}" data-path="{{:path}}">
+                <span class="mif mif-loop mif-lg fg-green"></span>
+                &nbsp;นำเข้าไฟล์
+              </a>
+            </li>
+            <li>
+              <a href="#" data-name="btnRemove" data-file="{{:name}}" data-path="{{:path}}">
+                <span class="mif mif-bin mif-lg fg-red"></span>
+                &nbsp;ลบไฟล์
+              </a>
+            </li>
+          </div>
+        </td>
+    </tr>

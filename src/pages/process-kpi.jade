@@ -1,0 +1,100 @@
+extends ../layouts/main
+
+block scripts 
+  script(src="../js/process-kpi.js")
+
+block content
+  .row
+    .col-md-3
+      ul.sidebar2
+        li.title
+          span.mif-app
+          | &nbsp;Main menu
+        li.stick.bg-red
+          a(href="../pages/index.html")
+            span.mif-home.icon
+            | &nbsp; Dashboard
+        li.title
+          | ประมวลผลข้อมูล
+        li.active
+          a(href="#")
+            span.mif.mif-loop2.icon
+            | ประมวลผลตัวชี้วัดกระทรวง
+        li
+          a(href="#")
+            span.mif.mif-loop2.icon
+            | ประมวลผลตัวชี้วัด QOF
+
+
+    .col-md-9
+      ul.breadcrumbs
+        li
+          a(href="#")
+            span.icon.mif-home
+        li
+          a(href="#") Dashboard
+        li ประมวลผลข้อมูลตัวชี้วัด
+
+      button.image-button.danger#btnProcess
+        | ประมวลผลรายการที่เลือก
+        span.icon.mif-loop2
+
+      table.table.striped.hovered#tblList
+        thead
+          tr
+            th(width="60", style="text-align: center;")
+              label.switch
+                input(type="checkbox", checked)#checkAll
+                span.check
+            th รายการ
+            th ประมวลผลล่าสุด
+        tbody
+          tr
+            td(width="60", style="text-align: center;")
+              label.switch
+                input(type="checkbox", checked, data-name="chkProcess", data-id="1")
+                span.check
+            td
+              | ข้อมูลประชากร (PERSON)
+            td
+              | 12/09/2558 13:30:32
+          tr
+            td(width="60", style="text-align: center;")
+              label.switch
+                input(type="checkbox", checked, data-name="chkProcess", data-id="2")
+                span.check
+            td
+              | ข้อมูลการรับบริการ (SERVICE)
+            td
+              | 11/09/2558 13:30:32
+          tr
+            td(width="60", style="text-align: center;")
+              label.switch
+                input(type="checkbox", checked, data-name="chkProcess", data-id="3")
+                span.check
+            td
+              | งานอนามัยแม่และเด็ก (PRENATAL, LABOR, POSTNATAL, NEWBORN, NEWBORN_CARE)
+            td
+              | 11/09/2558 13:30:32
+
+          tr
+            td(width="60", style="text-align: center;")
+              label.switch
+                input(type="checkbox", checked, data-name="chkProcess", data-id="4")
+                span.check
+            td
+              | ข้อมูลพัฒนาการและวัคซีน (NUTRITION, EPI, VACCINE)
+            td
+              | 11/09/2558 13:30:32
+
+  div(data-role="dialog", data-overlay="true", data-close-button="false",
+    data-type="info", data-width="480", data-background="bg-magenta",
+    data-color="fg-white", data-overlay-color="op-dark")#dialog.padding20
+    h2 Please wait...
+    .row
+      .col-md-12
+        | โปรแกรมกำลังประมวลผลข้อมูล กรุณารอจนกว่าหน้าจอจะปิดลง
+    .row
+      .col-md-12
+        br
+        div(data-role="preloader", data-type="metro", data-style="color").place-right

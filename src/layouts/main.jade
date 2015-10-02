@@ -1,0 +1,47 @@
+doctype
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    title โปรแกรมบริหารจัดการข้อมูลสุขภาพ : K-HDC [Kantarawichai Health Data Center]
+    link(rel="stylesheet", href="../../vendor/bootstrap/dist/css/bootstrap.min.css")
+    link(rel="stylesheet", href="../../vendor/metro/build/css/metro.min.css")
+    link(rel="stylesheet", href="../../vendor/metro/build/css/metro-icons.min.css")
+    link(rel="stylesheet", href="../../vendor/circliful/css/jquery.circliful.css")
+    link(rel="stylesheet", href="../css/style.css")
+    
+  body
+
+    div.app-bar(data-role="appbar")
+      a.app-bar-element(href="../pages/index.html")
+        span.mif-apps.mif-2x 
+        | &nbsp; K-HDC
+      span.app-bar-divider
+      ul.app-bar-menu
+        li
+          a(href="../pages/index.html")
+            span.mif-chart-bars.mif-2x 
+            | &nbsp;Dashboard
+        li
+          a(href="#").dropdown-toggle
+            span.mif-tools.mif-2x 
+            | &nbsp; Tools
+          ul.d-menu(data-role="dropdown")
+            li
+              a(href="../settings/settings.html")
+                span.mif-database.mif-lg 
+                | &nbsp; Connection Setting
+  
+      ul.app-bar-menu.place-right(data-flexdirection="reverse")
+        li(data-flexorderorigin="1", data-flexorder="2")
+          a(href="#")
+            span.mif-cogs.mif-2x
+        li(data-flexorderorigin="1", data-flexorder="2")
+          a(href="#")
+            span.mif-exit.mif-2x
+
+    div.container-fluid
+      block content
+
+    script(src="../js/app.js")
+    block scripts

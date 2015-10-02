@@ -1,0 +1,86 @@
+
+extends ../layouts/main
+
+block scripts
+  script(src="../js/setting.js")
+
+block content
+  ul.breadcrumbs
+    li
+      a(href="../pages/index.html")
+        span.icon.mif-home
+    li
+      a(href="../pages/index.html") Dashboard
+    li Settings
+
+  h1
+    | Connection setting
+  hr.bg-green
+
+  .row
+    .col-md-6
+      .panel
+        .heading
+          span.icon.mif-folder-open
+          span.title MongoDB Connection
+
+        .content
+
+          .row
+            .col-md-10
+              label ที่อยู่เครื่องแม่ (Host)
+              .input-control.text.full-size
+                input(type="text")#txtMongoDBHost
+            .col-md-2
+              label พอร์ต (Port)
+              .input-control.text.full-size
+                input(type="number")#txtMongoDBPort
+          .row
+            .col-md-12
+              label ฐานข้อมูล (Database)
+              .input-control.text.full-size
+                input(type="text")#txtMongoDBDatabase
+          .row
+            .col-md-6
+              label ชื่อผู้ใช้งาน (Username)
+              .input-control.text.full-size
+                input(type="text")#txtMongoDBUsername
+            .col-md-6
+              label รหัสผ่าน (Password)
+              .input-control.text.full-size
+                input(type="password")#txtMongoDBPassword
+    .col-md-6
+      .panel
+        .heading
+          span.icon.mif-database
+          span.title MySQL Connection
+        .content
+          .row
+            .col-md-10
+              label ที่อยู่เครื่องแม่ (Host)
+              .input-control.text.full-size
+                input(type="text")#txtMySQLHost
+            .col-md-2
+              label พอร์ต (Port)
+              .input-control.text.full-size
+                input(type="number")#txtMySQLPort
+          .row
+            .col-md-12
+              label ฐานข้อมูล (Database)
+              .input-control.text.full-size
+                input(type="text")#txtMySQLDatabase
+          .row
+            .col-md-6
+              label ชื่อผู้ใช้งาน (Username)
+              .input-control.text.full-size
+                input(type="text")#txtMySQLUsername
+            .col-md-6
+              label รหัสผ่าน (Password)
+              .input-control.text.full-size
+                input(type="password")#txtMySQLPassword
+
+  .row
+    .col-md-6
+      button#btnSave.button.success บันทึก 
+      | &nbsp;
+      a(href="../pages/index.html")#btnCancel.button ย้อนกลับ

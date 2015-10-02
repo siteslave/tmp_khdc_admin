@@ -1,0 +1,34 @@
+{
+  "name": "khdc_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./app/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "csv-parse": "^1.0.0",
+    "file-size": "^1.0.0",
+    "fs-extra": "^0.24.0",
+    "fs-finder": "^1.8.1",
+    "jszip": "^2.5.0",
+    "knex": "^0.8.6",
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "mongodb": "^2.0.43",
+    "mysql": "^2.9.0",
+    "q": "^1.4.1",
+    "q-foreach": "0.0.3",
+    "rimraf": "^2.4.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0",
+    "gulp-jshint": "^1.11.2",
+    "gulp-sass": "^2.0.4",
+    "gulp-watch": "^4.3.5"
+  }
+}
